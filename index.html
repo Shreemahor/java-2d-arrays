@@ -7,13 +7,21 @@
 </head>
 <body>
     <h1>Tic Tac Toe Game</h1>
-    <p>Loading...</p>
+    <p>Loading Java environment... Please wait 1-2 minutes...</p>
     
     <script>
         (async function() {
-            await cheerpjInit();
-            // Use cheerpjRunMain with the class name instead
-            await cheerpjRunMain("TicTacToe", "/app/tictac.jar");
+            try {
+                await cheerpjInit();
+                console.log("CheerpJ ready");
+                
+                // Use relative path (no leading slash)
+                await cheerpjRunJar("app/tictac.jar");
+                
+            } catch (error) {
+                console.error("Error:", error);
+                document.querySelector('p').textContent = 'Error loading game. Check console (F12).';
+            }
         })();
     </script>
 </body>
