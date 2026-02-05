@@ -14,25 +14,25 @@
         
         (async function() {
             try {
-                status.textContent = 'Initializing CheerpJ...';
-                await cheerpjInit();
-                console.log("CheerpJ initialized");
+                status.textContent = 'Initializing CheerpJ with debug mode...';
                 
-                status.textContent = 'Loading JAR file...';
+                // Enable debug logging
+                await cheerpjInit({
+                    enableInputMethods: true,
+                    enableDebug: true
+                });
                 
-                // Try using the full path
-                const jarPath = "/java-2d-arrays/app/tictactoe.jar";
-                console.log("Attempting to load:", jarPath);
+                console.log("CheerpJ initialized with debug");
+                status.textContent = 'Loading JAR...';
                 
-                await cheerpjRunJar(jarPath);
+                await cheerpjRunJar("/java-2d-arrays/app/tictactoe.jar");
                 
                 status.textContent = 'Game running!';
-                console.log("Game started");
                 
             } catch (error) {
-                console.error("Full error:", error);
-                status.innerHTML = '<span style="color: red;">Error: ' + error.message + 
-                    '<br>Check console (F12) for details</span>';
+                console.error("Error details:", error);
+                console.error("Error stack:", error.stack);
+                status.innerHTML = '<span style="color: red;">Fatal error - see console</span>';
             }
         })();
     </script>
