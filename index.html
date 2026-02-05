@@ -13,17 +13,17 @@
         (async function() {
             try {
                 await cheerpjInit();
-                console.log("CheerpJ ready");
+                console.log("CheerpJ initialized");
                 
-                // Use relative path (no leading slash)
                 await cheerpjRunJar("app/tictactoe.jar");
+                console.log("Game started");
                 
             } catch (error) {
                 console.error("Error:", error);
-                document.querySelector('p').textContent = 'Error loading game. Check console (F12).';
+                document.querySelector('p').innerHTML = 
+                    '<span style="color: red;">Error: ' + error.message + '</span>';
             }
         })();
     </script>
 </body>
 </html>
-
