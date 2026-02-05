@@ -7,21 +7,32 @@
 </head>
 <body>
     <h1>Tic Tac Toe Game</h1>
-    <p>Loading Java environment... Please wait 1-2 minutes...</p>
+    <div id="status">Loading...</div>
     
     <script>
+        const status = document.getElementById('status');
+        
         (async function() {
             try {
+                status.textContent = 'Initializing CheerpJ...';
                 await cheerpjInit();
                 console.log("CheerpJ initialized");
                 
-                await cheerpjRunJar("app/tictactoe.jar");
+                status.textContent = 'Loading JAR file...';
+                
+                // Try using the full path
+                const jarPath = "/java-2d-arrays/app/tictactoe.jar";
+                console.log("Attempting to load:", jarPath);
+                
+                await cheerpjRunJar(jarPath);
+                
+                status.textContent = 'Game running!';
                 console.log("Game started");
                 
             } catch (error) {
-                console.error("Error:", error);
-                document.querySelector('p').innerHTML = 
-                    '<span style="color: red;">Error: ' + error.message + '</span>';
+                console.error("Full error:", error);
+                status.innerHTML = '<span style="color: red;">Error: ' + error.message + 
+                    '<br>Check console (F12) for details</span>';
             }
         })();
     </script>
