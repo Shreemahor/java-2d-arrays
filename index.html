@@ -2,39 +2,262 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tic Tac Toe</title>
-    <script src="https://cjrtnc.leaningtech.com/3.0/cj3loader.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 2D Arrays & TicTacToe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #1e40af;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header h2 {
+            font-size: 1.8em;
+            color: #f97316;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .project-info {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            border-left: 4px solid #2563eb;
+        }
+
+        .project-info p {
+            color: #475569;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        /* Grid */
+        .apps-section h3 {
+            font-size: 1.5em;
+            color: #1e293b;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* Card*/
+        .app-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .app-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.15);
+            border-color: #2563eb;
+        }
+
+        .app-card .thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: white;
+        }
+
+        .app-card .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .app-card .content {
+            padding: 25px;
+        }
+
+        .app-card h4 {
+            font-size: 1.5em;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .app-card p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        .app-card .play-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .app-card .play-button:hover {
+            background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Tic Tac Toe Game</h1>
-    <div id="status">Loading...</div>
-    
-    <script>
-        const status = document.getElementById('status');
-        
-        (async function() {
-            try {
-                status.textContent = 'Initializing CheerpJ with debug mode...';
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Java 2D Arrays</h1>
+            <h2>Tic Tac Toe and more!</h2>
+        </div>
+
+        <div class="project-info">
+            <p>
+                This is my collection of games and simulations on Java 2D Arrays or Matrices. They are just arrays of arrays, and are really useful for tabular data. 
+                I coded in Java and then converted to js using my custom converter for this website. Tic Tac Toe is a great example of what 2D 
+                arrays can do and its super fun. There is also multiplying, summing, mirroring, randomizing, and more with matrices.
+                Click on any one below to play!
+            </p>
+        </div>
+
+        <!-- Apps Section -->
+        <div class="apps-section">
+            <h3>Select an App</h3>
+            
+            <div class="apps-grid">
                 
-                // Enable debug logging
-                await cheerpjInit({
-                    enableInputMethods: true,
-                    enableDebug: true
-                });
-                
-                console.log("CheerpJ initialized with debug");
-                status.textContent = 'Loading JAR...';
-                
-                await cheerpjRunJar("/java-2d-arrays/app/tictactoe.jar");
-                
-                status.textContent = 'Game running!';
-                
-            } catch (error) {
-                console.error("Error details:", error);
-                console.error("Error stack:", error.stack);
-                status.innerHTML = '<span style="color: red;">Fatal error - see console</span>';
-            }
-        })();
-    </script>
+                <!-- APP CARD 1 - COPY FROM HERE -->
+                <div class="app-card">
+                    <div class="thumbnail">
+                        🪞➕
+                    </div>
+                    <div class="content">
+                        <h4>Mirror & Sum</h4>
+                        <p>Make a matrix and find the sum of the rows and columns, or mirror the matrix.</p>
+                        <a href="apps/sum_mirror/sum_mirror.html" class="play-button">Play App</a>
+                    </div>
+                </div>
+
+                <div class="app-card">
+                    <div class="thumbnail" style="background: linear-gradient(135deg, #f97316 0%, #3b82f6 100%);">
+                        ❌⭕❌
+                    </div>
+                    <div class="content">
+                        <h4>Tic Tac Toe</h4>
+                        <p>Classic two-player game. Click cells to place X or O and try to get three in a row!</p>
+                        <a href="apps/tic-tac-toe/tictactoe.html" class="play-button">Play App</a>
+                    </div>
+                </div>
+
+                <div class="app-card">
+                    <div class="thumbnail">
+                        📊↗️
+                    </div>
+                    <div class="content">
+                        <h4>Row, Column, Diagonal</h4>
+                        <p>Find the largest row and columns out of a matrix of 1s and 0s, or find the sum of the major diagonal of a matrix of decimals.</p>
+                        <a href="apps/row_column_diagonal/row_column_diagonal.html" class="play-button">Play App</a>
+                    </div>
+                </div>
+
+                <div class="app-card">
+                    <div class="thumbnail">
+                        🔢🔲
+                    </div>
+                    <div class="content">
+                        <h4>Latin Square</h4>
+                        <p>A Latin Square is when each row and column contains each number exactly once, forming a perfect pattern. You'll see when you play!</p>
+                        <a href="apps/latinsquare/latinsquare.html" class="play-button">Play App</a>
+                    </div>
+                </div>
+
+                <div class="app-card">
+                    <div class="thumbnail">
+                        ❎🔃
+                    </div>
+                    <div class="content">
+                        <h4>Multiply Matrix</h4>
+                        <p>When you multiply matrices, you combine rows and columns to produce a new matrix. Try it out! (Note: number of columns in the first matrix must equal number of rows in the second matrix.)</p>
+                        <a href="apps/multiplymatrix/multiplymatrix.html" class="play-button">Play App</a>
+                    </div>
+                </div>
+
+                <div class="app-card">
+                    <div class="thumbnail">
+                        🎲💫
+                    </div>
+                    <div class="content">
+                        <h4>Random Matrix</h4>
+                        <p>Randomly generate a matrix with specified dimensions and values. Many different configurations.</p>
+                        <a href="apps/random_matrix/random_matrix.html" class="play-button">Play App</a>
+                    </div>
+                </div>
+
+                <div class="app-card">
+                    <div class="thumbnail">
+                        🍵😉
+                    </div>
+                    <div class="content">
+                        <h4>2D Array</h4>
+                        <p>Just 2D Arrays in Java!</p>
+                        <a href="apps/simple_2d_array/simple_2d_array.html" class="play-button">Play App</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Java 2D Arrays • Tic Tac Toe and more</p>
+        </div>
+    </div>
 </body>
 </html>
