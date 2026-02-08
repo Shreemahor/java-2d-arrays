@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 2D Arrays</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #2563eb;
+            margin-bottom: 20px;
+        }
+        .description {
+            margin-bottom: 30px;
+            max-width: 600px;
+            text-align: justify;
+            line-height: 1.6;
+        }
+        .array-container {
+            background-color: #f9fafb;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: inline-block; /* To fit content */
+        }
+        .array-table {
+            border-collapse: separate;
+            border-spacing: 10px;
+            font-size: 1.2em;
+        }
+        .array-table td {
+            padding: 10px 15px;
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            text-align: center;
+            min-width: 40px; /* Ensures consistent column width */
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #f97316;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+        }
+        .back-button:hover {
+            background-color: #ea580c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Java 2D Arrays</h1>
+
+    <div class="description">
+        <!-- Your description of what 2D arrays are goes here -->
+        <p>
+            A 2D array is an array whose elements are also arrays. It's like a table or a grid with rows and columns, and they are also called matrices.
+            In Java, you can create a 2D array using the syntax: `dataType[][] arrayName = new dataType[rows][columns];`. For example, `int[][] myArray = new int[3][3];` creates a 3x3 array of integers.
+            You can access elements in a 2D array using two indices: `arrayName[row][column]`. For example, `myArray[0][1]` would access the element in the first row and second column of `myArray`.
+            2D arrays are useful for representing data in a structured way, such as in games like Tic Tac Toe or for sorting tabluar data. They are also immutable in size, meaning once you create one
+            you cannot change its dimensions, but they are faster than ArrayLists and other dynamic data structures. They are an essential part of Java and I couldn't make these apps without them!
+        </p>
+    </div>
+
+    <div class="array-container">
+        <table class="array-table">
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <a href="../../index.html" class="back-button">Back to Menu</a>
+</body>
+</html>

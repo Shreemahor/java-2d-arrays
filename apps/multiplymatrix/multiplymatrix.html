@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Multiplication</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .header {
+            width: 100%;
+            background-color: #ffffff;
+            color: #333;
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #2563eb;
+        }
+        .back-button {
+            background-color: #f97316;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 20px;
+            transition: background-color 0.2s ease;
+        }
+        .back-button:hover {
+            background-color: #ea580c;
+        }
+        #gameOutput {
+            background-color: #1e1e1e;
+            color: #00ff00;
+            font-family: monospace;
+            padding: 20px;
+            margin: 20px auto; /* Center the output div */
+            border-radius: 8px;
+            white-space: pre-wrap;
+            max-height: 600px;
+            overflow-y: auto;
+            width: 80%; /* Adjust width as needed */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Matrix Multiplication</h1>
+        <a href="../../index.html" class="back-button">Back to Menu</a>
+    </div>
+
+    <!-- The game output will be dynamically added here by the JavaScript -->
+
+    <script src="multiplymatrix.js"></script>
+</body>
+</html>
